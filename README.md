@@ -1,1 +1,2 @@
-# 212FContact
+Write a simple ASP.NET MVC application (.NET 8 is fine) with Entity Framework 6 (using the provider pattern) implementing a simple Contact Us Form that saves the form data to an SQL Express Database and uses Bootstrap for a responsive layout. The form simply needs to capture First Name, Last Name, Email and Message with First Name, Email and Message as Required fields. Please write 1 unit test to validate that the Email address is in the correct format.
+
