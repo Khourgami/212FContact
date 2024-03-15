@@ -1,0 +1,53 @@
+﻿@model _212FContact.Models.Contact
+
+@{
+    ViewData["Title"] = "Contact Us";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="container">
+    <h2>Contact Us</h2>
+    <form asp-action="Index" method="post" id="contactForm">
+        <div class="row">
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="FirstName">First Name:</label>
+                    <input asp-for="FirstName" class="form-control" name="FirstName" value=@Model.FirstName required />
+                    <span asp-validation-for="FirstName" class="text-danger"></span>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="form-group">
+                    <label asp-for="LastName">Last Name:</label>
+                    <input asp-for="LastName" class="form-control" name="LastName" value=@Model.LastName />
+                    <span asp-validation-for="LastName" class="text-danger"></span>
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            <label asp-for="Email">Email:</label>
+            <input asp-for="Email" class="form-control" name="Email" value=@Model.Email required />
+            <span asp-validation-for="Email" class="text-danger"></span>
+        </div>
+        <div class="form-group">
+            <label asp-for="Message">Message:</label>
+            <textarea asp-for="Message" rows="5" class="form-control" name="Message" required> @Model.Message </textarea>
+            <span asp-validation-for="Message" class="text-danger"></span>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </form>
+
+    <br />
+    @if (ViewData["Errors"] != null)
+    {
+        <div class="alert alert-danger">
+            <ul>
+                @foreach (var error in (Array)ViewData["Errors"])
+                {
+                    <li>@error</li>
+                }
+            </ul>
+        </div>
+    }
+
+</div>
